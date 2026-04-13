@@ -3,6 +3,7 @@
 import { Transaction, TransactionType } from "@/types/finance";
 import { useState } from "react";
 import useFinanceHook from "@/stores/useFinanceHook";
+import { categories } from "@/utils/categories-list";
 
 const initialTransaction: Transaction = {
   description: '',
@@ -36,6 +37,7 @@ export default function FinanceForm() {
           name="description"
           className="form-input"
           placeholder="Ej: Salario, Alquiler..."
+          value={transaction.description}
           onChange={(e) => setTransaction({ ...transaction, description: e.currentTarget.value })}
         />
       </div>
@@ -48,6 +50,7 @@ export default function FinanceForm() {
           placeholder="0.00"
           step="0.01"
           name="amount"
+          value={transaction.amount}
           onChange={(e) => setTransaction({ ...transaction, amount: parseFloat(e.currentTarget.value) })}
         />
       </div>
@@ -58,9 +61,22 @@ export default function FinanceForm() {
           required
           className="form-input"
           name="date"
+          value={transaction.date}
           onChange={(e) => setTransaction({ ...transaction, date: e.currentTarget.value })}
         />
       </div>
+
+      <div>
+        <label className="form-label">Categoría</label>
+        <select className="form-input" name="category" onChange={(e) => setTransaction({ ...transaction, category: e.currentTarget.value })}>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div>
         <label className="form-label">Tipo</label>
         <select

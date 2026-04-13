@@ -1,5 +1,3 @@
-'use client';
-
 export default function MenuIcon({
   className,
 }: {
@@ -16,7 +14,7 @@ export default function MenuIcon({
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`w-[24px] h-[24px] ${className}`}
+      className={`w-6 h-6 ${className}`}
     >
       <line x1="4" x2="20" y1="12" y2="12" />
       <line x1="4" x2="20" y1="6" y2="6" />

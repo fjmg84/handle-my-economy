@@ -17,7 +17,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 flex-wrap">
           {/* Form Section */}
           <div className="w-95 shrink-0">
             <div className="bg-white rounded-xl border border-gray-200 p-6">
