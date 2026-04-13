@@ -1,6 +1,13 @@
+"use client";
+
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import TransactionsList from "@/components/lists/TransactionsList";
+import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function IngresosPage() {
+  const { transactions, removeTransaction } = useFinanceHook();
+  const incomes = transactions.filter(t => t.type === "income");
+
   return (
     <DashboardLayout>
       <div className="p-10">
@@ -9,7 +16,7 @@ export default function IngresosPage() {
           Gestiona y visualiza tus ingresos mensuales
         </p>
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <p>Funcionalidad de gestión de ingresos en construcción...</p>
+          <TransactionsList transactions={incomes} removeTransaction={removeTransaction} />
         </div>
       </div>
     </DashboardLayout>
