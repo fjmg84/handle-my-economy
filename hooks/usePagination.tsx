@@ -10,7 +10,6 @@ function usePagination(transactions: Transaction[]) {
   const getCurrentPageTransactions = () => {
     const startIndex = (currentPage - 1) * rowPerPage;
 
-
     const orderedTransactions = transactions.sort((a, b) => {
         const dateA = new Date(a.createdAt || a.date).getTime();
         const dateB = new Date(b.createdAt || b.date).getTime();
