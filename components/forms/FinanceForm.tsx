@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import useFinanceHook from "@/stores/useFinanceHook";
 import { Transaction, TransactionType } from "@/types/finance";
-import { categories } from "@/utils/categories-list";
+import { categories } from "@/utils/constant";
 
 const initialTransaction: Transaction = {
   description: "",
