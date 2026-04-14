@@ -1,3 +1,4 @@
+import AnnualTrasactionsChart from "@/components/charts/AnnualTransactionsChart";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 
 export default function GraficosPage() {
@@ -8,9 +9,8 @@ export default function GraficosPage() {
         <p className="text-gray-600 mb-6">
           Visualiza tu progreso financiero con gráficos interactivos
         </p>
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <p>Funcionalidad de gráficos en construcción...</p>
-        </div>
+
+        <AnnualTrasactionsChart />
       </div>
     </DashboardLayout>
   );
