@@ -15,10 +15,10 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p className="text-gray-600">
-          Bienvenido a <span className="font-bold">Details of My Economy</span>, tu aplicación
-          personal de gestión financiera. Esta herramienta te permite llevar un
-          control detallado de tus ingresos y gastos, con análisis visuales y un
-          asistente financiero inteligente.
+          Bienvenido a <span className="font-bold">Details of My Economy</span>,
+          tu aplicación personal de gestión financiera. Esta herramienta te
+          permite llevar un control detallado de tus ingresos y gastos, con
+          análisis visuales y un asistente financiero inteligente.
         </p>
         <div>
           <h3 className="text-sm font-semibold text-gray-800 mb-2">
@@ -27,9 +27,7 @@ const sections = [
           <ol className="list-decimal list-inside space-y-1 text-gray-600 text-sm">
             <li>Haz clic en &quot;Nueva Transacción&quot;</li>
             <li>Selecciona el tipo (ingreso o gasto)</li>
-            <li>
-              Completa los campos: Descripción, Monto, Categoría y Fecha
-            </li>
+            <li>Completa los campos: Descripción, Monto, Categoría y Fecha</li>
             <li>Haz clic en &quot;Guardar&quot;</li>
           </ol>
         </div>
@@ -163,7 +161,8 @@ const sections = [
           >
             Ollama
           </a>{" "}
-          corriendo en el puerto <code className="bg-gray-100 px-1 rounded text-xs">11434</code>.
+          corriendo en el puerto{" "}
+          <code className="bg-gray-100 px-1 rounded text-xs">11434</code>.
         </p>
 
         <div>
@@ -315,7 +314,10 @@ const sections = [
             a: "Los datos se guardan automáticamente en el almacenamiento local. Para mayor seguridad, exporta regularmente tus datos.",
           },
         ].map((faq) => (
-          <div key={faq.q} className="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+          <div
+            key={faq.q}
+            className="border-b border-gray-100 pb-4 last:border-0 last:pb-0"
+          >
             <p className="text-sm font-semibold text-gray-800 mb-1">{faq.q}</p>
             <p className="text-sm text-gray-600">{faq.a}</p>
           </div>
@@ -370,7 +372,10 @@ export default function AyudaPage() {
         {/* Footer */}
         <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between text-sm text-gray-500">
           <span>Última actualización: 13 de abril de 2026</span>
-          <a href="mailto:fjmgqb@gmail.com" className="text-blue-600 hover:underline">
+          <a
+            href="mailto:fjmgqb@gmail.com"
+            className="text-blue-600 hover:underline"
+          >
             fjmgqb@gmail.com
           </a>
         </div>

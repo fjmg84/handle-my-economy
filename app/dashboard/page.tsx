@@ -3,8 +3,6 @@ import FinanceForm from "@/components/forms/FinanceForm";
 import FinanceRecently from "@/components/lists/FinanceRecently";
 
 export default function DashboardPage() {
-  
-
   return (
     <DashboardLayout>
       <div className="p-10">
@@ -22,7 +20,9 @@ export default function DashboardPage() {
           <div className="w-95 shrink-0">
             <div className="bg-white rounded-xl border border-gray-200 p-6">
               <div className="mb-6">
-                <h2 className="text-xl font-bold text-gray-900">Nueva Transacción</h2>
+                <h2 className="text-xl font-bold text-gray-900">
+                  Nueva Transacción
+                </h2>
                 <p className="text-sm text-gray-600 mt-1">
                   Registra una nueva transacción
                 </p>
@@ -34,7 +34,7 @@ export default function DashboardPage() {
           {/* Recent Transactions */}
           <div className="flex-1">
             <div className="bg-white rounded-xl border border-gray-200 p-6">
-              <FinanceRecently/>
+              <FinanceRecently />
             </div>
           </div>
         </div>

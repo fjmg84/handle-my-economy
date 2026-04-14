@@ -1,6 +1,7 @@
-import { Transaction } from '@/types/finance';
-import {create} from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+import { Transaction } from "@/types/finance";
 
 interface FinanceState {
   transactions: Transaction[];
@@ -8,24 +9,27 @@ interface FinanceState {
   removeTransaction: (id: string) => void;
 }
 
-
 const useFinanceStore = create<FinanceState>()(
-    persist(
-        (set) => ({
-            transactions: [],
-            addTransaction: (transaction: Transaction) => set((state) => {
-                const id = crypto.randomUUID();
-                const createdAt = new Date();
-                const newTransaction = { ...transaction, id, createdAt };
+  persist(
+    (set) => ({
+      transactions: [],
+      addTransaction: (transaction: Transaction) =>
+        set((state) => {
+          const id = crypto.randomUUID();
+          const createdAt = new Date();
+          const newTransaction = { ...transaction, id, createdAt };
 
-                return { transactions: [...state.transactions, newTransaction] }
-            }),
-            removeTransaction: (id: string) => set((state) => ({ transactions: state.transactions.filter(t => t.id !== id) })),
+          return { transactions: [...state.transactions, newTransaction] };
         }),
-        {
-            name: 'finance-storage', // unique name
-        }
-    )
+      removeTransaction: (id: string) =>
+        set((state) => ({
+          transactions: state.transactions.filter((t) => t.id !== id),
+        })),
+    }),
+    {
+      name: "finance-storage", // unique name
+    }
+  )
 );
 
 export default useFinanceStore;

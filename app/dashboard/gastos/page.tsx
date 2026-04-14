@@ -5,9 +5,8 @@ import TransactionsList from "@/components/lists/TransactionsList";
 import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function GastosPage() {
-
-  const {transactions, removeTransaction } = useFinanceHook();
-  const expenses = transactions.filter(t => t.type === "expense");
+  const { transactions, removeTransaction } = useFinanceHook();
+  const expenses = transactions.filter((t) => t.type === "expense");
 
   return (
     <DashboardLayout>
@@ -17,7 +16,10 @@ export default function GastosPage() {
           Gestiona y visualiza tus gastos mensuales
         </p>
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <TransactionsList transactions={expenses} removeTransaction={removeTransaction} />
+          <TransactionsList
+            transactions={expenses}
+            removeTransaction={removeTransaction}
+          />
         </div>
       </div>
     </DashboardLayout>

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function Toast({
   message,
-  type = 'success',
+  type = "success",
   onClose,
 }: {
   message: string;
-  type?: 'success' | 'error';
+  type?: "success" | "error";
   onClose?: () => void;
 }) {
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Toast({
   return (
     <div
       className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg shadow-lg text-white ${
-        type === 'success' ? 'bg-green-500' : 'bg-red-500'
+        type === "success" ? "bg-green-500" : "bg-red-500"
       }`}
     >
       {message}

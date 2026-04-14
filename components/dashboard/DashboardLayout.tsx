@@ -1,5 +1,5 @@
-import IconComponent from "../icons/IconComponent";
-import MenuIcon from "../icons/MenuIcon";
+import { MenuIcon } from "lucide-react";
+import Link from "next/dist/client/link";
 
 export default function DashboardLayout({
   children,
@@ -9,33 +9,46 @@ export default function DashboardLayout({
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <aside
-        className="hidden md:flex w-[220px] bg-white border-r border-gray-200 flex-col"
-      >
+      <aside className="hidden md:flex w-55 bg-white border-r border-gray-200 flex-col">
         <div className="flex flex-col gap-6 p-6">
           {/* Logo */}
-          <a
+          <Link
             href="/"
             className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg"
           >
             <span className="text-lg font-bold text-white">Mi Economía</span>
-          </a>
+          </Link>
 
           {/* Navigation */}
           <nav>
-            <a href="/dashboard" className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg text-white">
+            <a
+              href="/dashboard"
+              className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg text-white"
+            >
               <span className="flex items-center">Dashboard</span>
             </a>
-            <a href="/dashboard/gastos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/gastos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Gastos</span>
             </a>
-            <a href="/dashboard/ingresos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/ingresos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Ingresos</span>
             </a>
-            <a href="/dashboard/graficos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/graficos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Gráficos</span>
             </a>
-            <a href="/dashboard/asistente" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/asistente"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Asistente</span>
             </a>
           </nav>
@@ -44,9 +57,7 @@ export default function DashboardLayout({
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden bg-slate-50">
-        <div className="flex-1 overflow-auto p-10">
-          {children}
-        </div>
+        <div className="flex-1 overflow-auto p-10">{children}</div>
       </div>
 
       {/* Mobile Navigation */}
@@ -60,19 +71,34 @@ export default function DashboardLayout({
           </div>
 
           <nav>
-            <a href="/dashboard" className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg text-white mb-4">
+            <a
+              href="/dashboard"
+              className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg text-white mb-4"
+            >
               <span className="flex items-center">Dashboard</span>
             </a>
-            <a href="/dashboard/gastos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/gastos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Gastos</span>
             </a>
-            <a href="/dashboard/ingresos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/ingresos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Ingresos</span>
             </a>
-            <a href="/dashboard/graficos" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/graficos"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Gráficos</span>
             </a>
-            <a href="/dashboard/asistente" className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <a
+              href="/dashboard/asistente"
+              className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+            >
               <span className="flex items-center">Asistente</span>
             </a>
           </nav>
@@ -85,9 +111,7 @@ export default function DashboardLayout({
           id="mobileNavBtn"
           className="bg-blue-100 p-3 rounded-lg shadow-lg hover:bg-blue-200 transition-colors"
         >
-          <IconComponent color="currentColor">
-            <MenuIcon />
-          </IconComponent>
+          <MenuIcon size={20} color="#1e40af" />
         </button>
       </div>
     </div>

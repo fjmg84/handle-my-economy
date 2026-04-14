@@ -6,7 +6,7 @@ import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function IngresosPage() {
   const { transactions, removeTransaction } = useFinanceHook();
-  const incomes = transactions.filter(t => t.type === "income");
+  const incomes = transactions.filter((t) => t.type === "income");
 
   return (
     <DashboardLayout>
@@ -16,7 +16,10 @@ export default function IngresosPage() {
           Gestiona y visualiza tus ingresos mensuales
         </p>
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <TransactionsList transactions={incomes} removeTransaction={removeTransaction} />
+          <TransactionsList
+            transactions={incomes}
+            removeTransaction={removeTransaction}
+          />
         </div>
       </div>
     </DashboardLayout>

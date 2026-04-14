@@ -1,32 +1,33 @@
 "use client";
 
-import { Transaction, TransactionType } from "@/types/finance";
 import { useState } from "react";
+
 import useFinanceHook from "@/stores/useFinanceHook";
+import { Transaction, TransactionType } from "@/types/finance";
 import { categories } from "@/utils/categories-list";
 
 const initialTransaction: Transaction = {
-  description: '',
+  description: "",
   amount: 0,
-  date: '',
+  date: "",
   type: TransactionType.INCOME,
-  category: 'General',
-}
-
+  category: "General",
+};
 
 export default function FinanceForm() {
-  const [transaction, setTransaction] = useState<Transaction>(initialTransaction);
+  const [transaction, setTransaction] =
+    useState<Transaction>(initialTransaction);
   const { addTransaction } = useFinanceHook();
 
   const onAdd = () => {
     if (!transaction.description || !transaction.amount || !transaction.date) {
-      alert('Por favor completa todos los campos');
+      alert("Por favor completa todos los campos");
       return;
     }
     addTransaction(transaction);
     setTransaction(initialTransaction);
-  }
-  
+  };
+
   return (
     <form className="space-y-4">
       <div>
@@ -38,7 +39,12 @@ export default function FinanceForm() {
           className="form-input"
           placeholder="Ej: Salario, Alquiler..."
           value={transaction.description}
-          onChange={(e) => setTransaction({ ...transaction, description: e.currentTarget.value })}
+          onChange={(e) =>
+            setTransaction({
+              ...transaction,
+              description: e.currentTarget.value,
+            })
+          }
         />
       </div>
       <div>
@@ -51,7 +57,12 @@ export default function FinanceForm() {
           step="0.01"
           name="amount"
           value={transaction.amount}
-          onChange={(e) => setTransaction({ ...transaction, amount: parseFloat(e.currentTarget.value) })}
+          onChange={(e) =>
+            setTransaction({
+              ...transaction,
+              amount: parseFloat(e.currentTarget.value),
+            })
+          }
         />
       </div>
       <div>
@@ -62,13 +73,21 @@ export default function FinanceForm() {
           className="form-input"
           name="date"
           value={transaction.date}
-          onChange={(e) => setTransaction({ ...transaction, date: e.currentTarget.value })}
+          onChange={(e) =>
+            setTransaction({ ...transaction, date: e.currentTarget.value })
+          }
         />
       </div>
 
       <div>
         <label className="form-label">Categoría</label>
-        <select className="form-input" name="category" onChange={(e) => setTransaction({ ...transaction, category: e.currentTarget.value })}>
+        <select
+          className="form-input"
+          name="category"
+          onChange={(e) =>
+            setTransaction({ ...transaction, category: e.currentTarget.value })
+          }
+        >
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -82,7 +101,12 @@ export default function FinanceForm() {
         <select
           className="form-input"
           name="type"
-          onChange={(e) => setTransaction({ ...transaction, type: e.currentTarget.value as TransactionType })}
+          onChange={(e) =>
+            setTransaction({
+              ...transaction,
+              type: e.currentTarget.value as TransactionType,
+            })
+          }
         >
           <option value={TransactionType.INCOME}>Ingreso</option>
           <option value={TransactionType.EXPENSE}>Gasto</option>

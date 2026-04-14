@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import "../styles/globals.css";
 
@@ -7,11 +6,7 @@ export const metadata = {
   description: "Gestiona tu economía personal",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" className="h-full">
       <head>

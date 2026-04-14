@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import IconComponent from "@/components/icons/IconComponent";
 import MenuIcon from "@/components/icons/MenuIcon";

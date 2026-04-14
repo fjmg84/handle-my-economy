@@ -1,20 +1,19 @@
-import usePagination from "@/hooks/usePagination";
-import { Transaction } from "@/types/finance";
 import { Trash2 } from "lucide-react";
 
-interface TransactionsListProps {
-    transactions: Transaction[];
-    removeTransaction: (id: string) => void;
+import { Transaction } from "@/types/finance";
 
+interface TransactionsListProps {
+  transactions: Transaction[];
+  removeTransaction: (id: string) => void;
 }
 
-function TransactionsList({ transactions, removeTransaction }: TransactionsListProps) {
-    
-
-
-    return (
-        <>
-        <div className="overflow-y-auto h-120 flex flex-col gap-2">
+function TransactionsList({
+  transactions,
+  removeTransaction,
+}: TransactionsListProps) {
+  return (
+    <>
+      <div className="overflow-y-auto h-120 flex flex-col gap-2">
         {transactions.map((t) => (
           <div
             key={t.id}
@@ -23,8 +22,9 @@ function TransactionsList({ transactions, removeTransaction }: TransactionsListP
             <div>
               <p className="font-semibold">{t.description}</p>
               <p className="text-sm text-gray-600">{t.category}</p>
-              <p className="text-xs text-gray-600">{new Date(t.date).toLocaleDateString()}</p>
-              
+              <p className="text-xs text-gray-600">
+                {new Date(t.date).toLocaleDateString()}
+              </p>
             </div>
             <div className="text-right flex items-center">
               <span
@@ -44,19 +44,14 @@ function TransactionsList({ transactions, removeTransaction }: TransactionsListP
             </div>
           </div>
         ))}
-
-
-      
       </div>
-        {transactions.length === 0 && (
-          <p className="text-center text-gray-500">
-            No hay transacciones registradas
-          </p>
-        )}
-
-       
-        </>
-    )
+      {transactions.length === 0 && (
+        <p className="text-center text-gray-500">
+          No hay transacciones registradas
+        </p>
+      )}
+    </>
+  );
 }
 
 export default TransactionsList;
