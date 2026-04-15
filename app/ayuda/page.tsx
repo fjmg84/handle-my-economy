@@ -1,6 +1,6 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Metadata } from "next";
-
-import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Ayuda | Mi Economía",
@@ -329,12 +329,20 @@ const sections = [
 
 export default function AyudaPage() {
   return (
-    <DashboardLayout>
+    <>
       <div className="p-10">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-[32px] font-bold text-gray-900">Ayuda</h1>
-          <p className="text-base text-gray-600 mt-2">
+          <h1 className="text-[32px] font-bold text-gray-900 flex items-center gap-4">
+            <Link
+              href="/"
+              className="w-10 h-10 rounded-full hover:bg-indigo-100 transition-colors flex items-center justify-center p-2"
+            >
+              <ArrowLeft size={20} color="#4F46E5" />
+            </Link>
+            Ayuda
+          </h1>
+          <p className="text-sm bg-lime-300 px-4 py-2 rounded-full w-max uppercase font-bold">
             Documentación y guía de uso de la aplicación
           </p>
         </div>
@@ -342,13 +350,13 @@ export default function AyudaPage() {
         {/* Quick nav */}
         <div className="flex flex-wrap gap-2 mb-8">
           {sections.map((s) => (
-            <a
+            <Link
               key={s.id}
               href={`#${s.id}`}
               className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-gray-600 hover:border-blue-400 hover:text-blue-600 transition-colors"
             >
               {s.icon} {s.title}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -380,6 +388,6 @@ export default function AyudaPage() {
           </a>
         </div>
       </div>
-    </DashboardLayout>
+    </>
   );
 }
