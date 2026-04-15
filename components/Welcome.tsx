@@ -44,7 +44,9 @@ export default function Welcome() {
 
       <div className="flex flex-wrap gap-4 justify-center">
         {links.map((link) => (
-          <Card {...link} key={link.title} />
+          <div key={link.title} className="max-w-100 ">
+            <Card {...link} />
+          </div>
         ))}
       </div>
     </div>

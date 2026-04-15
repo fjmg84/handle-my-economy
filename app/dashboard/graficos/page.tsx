@@ -1,5 +1,8 @@
 import AnnualTrasactionsChart from "@/components/charts/AnnualTransactionsChart";
+import TransactionsForMonthsChart from "@/components/charts/TransactionsForMonthsChart";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
+import Card from "@/components/shares/Card";
+import { CalendarDays, CalendarRange } from "lucide-react";
 
 export default function GraficosPage() {
   return (
@@ -10,7 +13,19 @@ export default function GraficosPage() {
           Visualiza tu progreso financiero con gráficos interactivos
         </p>
 
-        <AnnualTrasactionsChart />
+        <div className="flex flex-col gap-5 items-center">
+          <div className="w-210 flex justify-center items-center">
+            <Card title="Transacciones Anuales" icon={<CalendarDays />}>
+              <AnnualTrasactionsChart />
+            </Card>
+          </div>
+
+          <div className="w-210 flex justify-center items-center">
+            <Card title="Transacciones Mensuales" icon={<CalendarRange />}>
+              <TransactionsForMonthsChart />
+            </Card>
+          </div>
+        </div>
       </div>
     </DashboardLayout>
   );
