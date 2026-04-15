@@ -26,14 +26,23 @@ const links = [
 export default function Welcome() {
   return (
     <div className="p-10">
-      <div className="mb-8">
-        <h1 className="text-[32px] font-bold text-gray-900">Bienvenido</h1>
-        <p className="text-base text-gray-600 mt-2">
-          Gestiona tus finanzas personales de forma sencilla
+      <div className="mb-10 flex flex-col items-start gap-4 md:w-1/3">
+        <h1 className="text-xl font-bold text-gray-900">
+          Bienvenido a <br />
+          <span className="text-[#4f46e5] text-6xl font-extrabold">
+            Mi Economía
+          </span>
+        </h1>
+        <span className="text-base">
+          Gestiona tus finanzas de manera inteligente y sencilla con nuestra
+          aplicación de finanzas personales impulsada por IA.
+        </span>
+        <p className="text-sm bg-lime-300 px-4 py-2 rounded-full w-max uppercase font-bold">
+          ¡Empieza a organizar tu economía hoy mismo!
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap gap-4 justify-center">
         {links.map((link) => (
           <Card {...link} key={link.title} />
         ))}

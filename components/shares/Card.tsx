@@ -12,8 +12,7 @@ function Card({ title, description, link, icon }: CardProps) {
   return (
     <Link
       href={link}
-      // Agrega el shadow de color btn-primary al hacer hover
-      className="card hover:shadow-lg transition-shadow border border-[#4f46e5] rounded-lg p-6  flex items-start gap-4 flex-col hover:shadow-[#4f46e5]/20"
+      className="card hover:shadow-lg transition-shadow border border-[#4f46e5] rounded-lg p-6  flex items-start gap-4 flex-col hover:shadow-[#4f46e5]/20 w-full max-w-100"
     >
       <div className="bg-gray-100 p-4 rounded-md">{icon}</div>
 
