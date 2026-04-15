@@ -26,7 +26,7 @@ const links = [
 export default function Welcome() {
   return (
     <div className="p-10">
-      <div className="mb-10 flex flex-col items-start gap-4 md:w-1/3">
+      <div className="mb-10 flex flex-col items-start gap-4 lg:w-1/3">
         <h1 className="text-xl font-bold text-gray-900">
           Bienvenido a <br />
           <span className="text-[#4f46e5] text-6xl font-extrabold">

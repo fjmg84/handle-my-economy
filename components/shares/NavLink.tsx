@@ -1,22 +1,44 @@
+import {
+  ArrowLeftRight,
+  BanknoteArrowDown,
+  BanknoteArrowUp,
+  ChartArea,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
-export const navItems: { name: string; path: string; description: string }[] = [
+type NavItem = {
+  name: string;
+  path: string;
+  description: string;
+  icon?: ReactNode;
+};
+
+export const navItems: NavItem[] = [
   {
     name: "Transacciones",
     path: "/dashboard",
     description: "Agregar transacciones nuevas",
+    icon: <ArrowLeftRight color="#4f46e5" />,
   },
-  { name: "Gastos", path: "/dashboard/gastos", description: "Ver gastos" },
+  {
+    name: "Gastos",
+    path: "/dashboard/gastos",
+    description: "Ver gastos",
+    icon: <BanknoteArrowDown color="#4f46e5" />,
+  },
   {
     name: "Ingresos",
     path: "/dashboard/ingresos",
     description: "Ver ingresos",
+    icon: <BanknoteArrowUp color="#4f46e5" />,
   },
   {
     name: "Gráficos",
     path: "/dashboard/graficos",
     description: "Análisis de datos visual",
+    icon: <ChartArea color="#4f46e5" />,
   },
 ];
 
@@ -28,14 +50,16 @@ function NavLink() {
     <Link
       key={item.path}
       href={item.path}
-      className={`flex items-center gap-3 px-3 py-2 ${
+      className={`flex items-center gap-3 p-4 ${
         active === item.name
-          ? "bg-blue-600 text-white"
-          : "text-gray-700 hover:bg-gray-100"
+          ? "bg-indigo-600 text-white"
+          : "text-gray-700 hover:bg-indigo-100"
       } rounded-lg`}
     >
-      <div className="flex flex-col">
-        <span className="truncate">{item.name}</span>
+      <div className="bg-indigo-100 p-2 rounded-md">{item.icon}</div>
+
+      <div className="flex flex-col justify-start items-start">
+        <span className="truncate text-md">{item.name}</span>
         <span
           className={`text-xs ${active === item.name ? "text-white" : "text-gray-500"}`}
         >

@@ -123,7 +123,7 @@ const sections = [
         ].map((feat) => (
           <div key={feat.num} className="bg-gray-50 rounded-lg p-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
+              <span className="w-6 h-6 bg-indigo-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
                 {feat.num}
               </span>
               <h3 className="text-sm font-semibold text-gray-800">

@@ -8,18 +8,20 @@ import NavLink from "./NavLink";
 
 const NavComponent = () => {
   return (
-    <>
+    <div className="z-50">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-3 px-3 py-2 bg-blue-600">
-        <span className="text-lg font-bold text-white">Mi Economía</span>
-      </Link>
+      <div className="flex items-center gap-3 px-4 py-8 bg-indigo-600">
+        <Link href="/" className="text-2xl font-bold text-white">
+          Mi Economía
+        </Link>
+      </div>
 
       {/* Navigation */}
 
-      <nav className="p-6">
+      <nav className="p-6 flex flex-col gap-2">
         <NavLink />
       </nav>
-    </>
+    </div>
   );
 };
 
@@ -28,17 +30,20 @@ export default function Nav() {
 
   return (
     <>
-      <aside className="hidden md:flex w-64 bg-white border-r border-gray-200 flex-col gap-6">
+      <aside className="hidden md:flex bg-indigo-50 border-r border-gray-200 flex-col gap-6">
         <NavComponent />
       </aside>
 
       {/* Mobile Navigation */}
       <div
         id="mobileNav"
-        className={`fixed inset-y-0 bg-white w-full duration-300 ease-in-out z-50 ${
+        className={`fixed inset-y-0 w-full bg-white duration-300 ease-in-out z-30 ${
           showMobileNav ? "right-0" : "-right-full"
         }`}
       >
+        <div
+          className={`md:hidden absolute bg-indigo-50 duration-1000 -top-100 -right-100 z-30 ${showMobileNav ? "w-375 h-375 rounded-full" : "w-50 h-50 rounded-none"}`}
+        />
         <div className="flex flex-col gap-6 h-full overflow-y-auto">
           <NavComponent />
         </div>
