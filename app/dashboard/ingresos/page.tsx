@@ -5,8 +5,7 @@ import TransactionsList from "@/components/lists/TransactionsList";
 import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function IngresosPage() {
-  const { transactions, removeTransaction } = useFinanceHook();
-  const incomes = transactions.filter((t) => t.type === "income");
+  const { removeTransaction, incomes } = useFinanceHook();
 
   return (
     <DashboardLayout>

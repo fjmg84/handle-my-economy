@@ -5,8 +5,7 @@ import TransactionsList from "@/components/lists/TransactionsList";
 import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function GastosPage() {
-  const { transactions, removeTransaction } = useFinanceHook();
-  const expenses = transactions.filter((t) => t.type === "expense");
+  const { expenses, removeTransaction } = useFinanceHook();
 
   return (
     <DashboardLayout>
