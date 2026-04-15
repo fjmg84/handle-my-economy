@@ -6,7 +6,6 @@ import prettierPlugin from "eslint-plugin-prettier";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-import noSelfRecursiveJsxRule from "./eslint-rules/no-self-recursive-jsx.mjs";
 
 export default defineConfig([
   // Reglas base de JS
@@ -29,7 +28,6 @@ export default defineConfig([
     plugins: {
       "local-rules": {
         rules: {
-          "no-self-recursive-jsx": noSelfRecursiveJsxRule,
         },
       },
     },
