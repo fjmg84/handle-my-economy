@@ -38,11 +38,14 @@ function TransactionsForMonthsChart() {
 
   useEffect(() => {
     if (chartRef.current) {
+      const nameMonth = new Date(0, month).toLocaleString("es-ES", {
+        month: "long",
+      });
       const label =
         transactionType === TransactionType.INCOME
-          ? `Ingresos Mensuales del ${year}`
-          : `Gastos Mensuales del ${year}`;
-          
+          ? `Ingresos Mensuales ${nameMonth} del ${year} `
+          : `Gastos Mensuales ${nameMonth} del ${year}`;
+
       createChart({
         chartRef,
         type: "line",
