@@ -1,14 +1,9 @@
-import { Chart, ChartConfiguration, ChartType, registerables } from "chart.js";
-import { RefObject } from "react";
+import { ChartDataProps } from "@/types/chart";
+import { Chart, ChartType, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
-interface ChartDataProps {
-    chartRef: RefObject<HTMLCanvasElement | null>;
-    data?: ChartConfiguration<ChartType>["data"];
-    options?: ChartConfiguration<ChartType>["options"];
-    type?: ChartType;
-}
+
 
 function createChart({
   chartRef,
@@ -29,10 +24,6 @@ function createChart({
         plugins: {
           legend: {
             position: "top",
-          },
-          title: {
-            display: true,
-            text: "Progreso Financiero Mensual",
           },
         },
       },
