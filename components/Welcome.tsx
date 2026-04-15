@@ -1,4 +1,27 @@
-import Link from "next/link";
+import Card from "./shares/Card";
+import { CircleUser, LayoutDashboard, LifeBuoy } from "lucide-react";
+
+const links = [
+  {
+    title: "Dashboard",
+    description:
+      "Accede al resumen de tus finanzas y gestiona tus transacciones",
+    link: "/dashboard",
+    icon: <LayoutDashboard color="#4f46e5" />,
+  },
+  {
+    title: "Ayuda",
+    description: "Consulta preguntas frecuentes y cómo usar la aplicación",
+    link: "/ayuda",
+    icon: <LifeBuoy color="#4f46e5" />,
+  },
+  {
+    title: "Contacto",
+    description: "Contáctanos para soporte o cualquier consulta",
+    link: "/#contacto",
+    icon: <CircleUser color="#4f46e5" />,
+  },
+];
 
 export default function Welcome() {
   return (
@@ -11,32 +34,9 @@ export default function Welcome() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Link
-          href="/dashboard"
-          className="card hover:shadow-lg transition-shadow"
-        >
-          <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-          <p className="text-gray-600">
-            Accede al resumen de tus finanzas y gestiona tus transacciones
-          </p>
-        </Link>
-
-        <Link href="/ayuda" className="card hover:shadow-lg transition-shadow">
-          <h2 className="text-xl font-bold mb-4">Ayuda</h2>
-          <p className="text-gray-600">
-            Consulta preguntas frecuentes y cómo usar la aplicación
-          </p>
-        </Link>
-
-        <Link
-          href="/#contacto"
-          className="card hover:shadow-lg transition-shadow"
-        >
-          <h2 className="text-xl font-bold mb-4">Contacto</h2>
-          <p className="text-gray-600">
-            Contáctanos para soporte o cualquier consulta
-          </p>
-        </Link>
+        {links.map((link) => (
+          <Card {...link} key={link.title} />
+        ))}
       </div>
     </div>
   );
