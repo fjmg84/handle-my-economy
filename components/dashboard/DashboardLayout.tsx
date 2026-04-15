@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 import Nav from "../shares/Nav";
+import TransactionsDisplay from "../shares/TransactionsDisplay";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,7 +11,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden bg-slate-50">
-        <div className="flex-1 overflow-auto p-10">{children}</div>
+        <div className="flex-1 overflow-auto p-10">
+          <TransactionsDisplay />
+          {children}
+        </div>
       </div>
     </div>
   );
