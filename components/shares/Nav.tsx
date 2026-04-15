@@ -32,18 +32,18 @@ export default function Nav() {
 
   return (
     <>
-      <aside className="hidden md:flex w-64 bg-white border-r border-gray-200 flex-col gap-6 p-6">
+      <aside className="hidden md:flex w-64 bg-white border-r border-gray-200 flex-col gap-6">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg"
+          className="flex items-center gap-3 px-3 py-2 bg-blue-600"
         >
           <span className="text-lg font-bold text-white">Mi Economía</span>
         </Link>
 
         {/* Navigation */}
 
-        <nav>
+        <nav className="p-6">
           {navItems.map((item) => (
             <Link
               key={item.path}
