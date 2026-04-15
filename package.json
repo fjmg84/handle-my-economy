@@ -29,6 +29,7 @@
     "eslint": "9.39.1",
     "eslint-config-next": "16.2.3",
     "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-no-self-recursive": "github:fjmg84/no-self-recursive-jsx#main",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-react": "7.37.5",
     "globals": "17.5.0",
