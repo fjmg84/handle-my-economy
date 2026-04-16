@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden bg-slate-50">
-        <div className="flex-1 overflow-auto p-10">
+        <div className="flex flex-col overflow-auto p-10 gap-10">
           <TransactionsDisplay />
           {children}
         </div>

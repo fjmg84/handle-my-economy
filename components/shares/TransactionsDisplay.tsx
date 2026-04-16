@@ -2,6 +2,7 @@
 
 import useFinanceHook from "@/stores/useFinanceHook";
 import { BanknoteArrowDown, BanknoteArrowUp } from "lucide-react";
+import Headers from "./Header";
 
 function TransactionsDisplay() {
   const { incomes, expenses } = useFinanceHook();
@@ -12,7 +13,7 @@ function TransactionsDisplay() {
     const today = new Date().getFullYear();
 
     if (incomeDate.getFullYear() === today) {
-      return (incomeTotal += income.amount);
+      return (incomeTotal += income?.amount || 0);
     }
   });
 
@@ -22,7 +23,7 @@ function TransactionsDisplay() {
     const today = new Date().getFullYear();
 
     if (expenseDate.getFullYear() === today) {
-      return (expenseTotal += expense.amount);
+      return (expenseTotal += expense?.amount || 0);
     }
   });
 
@@ -30,12 +31,13 @@ function TransactionsDisplay() {
 
   return (
     <div className="flex flex-col gap-4 from-indigo-800 to-slate-900 bg-linear-to-br rounded-2xl p-6">
-      <h2 className="text-2xl text-white">Transacciones del año actual</h2>
-      <span className="text-base text-gray-300">
-        Resumen de ingresos, gastos y total neto
-      </span>
+      <Headers
+        title="Resumen Financiero"
+        description="Una visión general de tus finanzas este año"
+        color="light"
+      />
 
-      <div className="flex flex-col md:flex-row gap-4 justify-start">
+      <div className="flex flex-col md:flex-row gap-4 justify-start mt-6">
         <div className="px-4 py-2 h-12.5 bg-green-100 rounded-3xl flex justify-center gap-4 items-center w-max">
           <BanknoteArrowUp color="#16a34a" size={20} />
 
