@@ -2,23 +2,24 @@
 
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import TransactionsList from "@/components/lists/TransactionsList";
+import Headers from "@/components/shares/Header";
+import usePagination from "@/hooks/usePagination";
 import useFinanceHook from "@/stores/useFinanceHook";
 
 export default function GastosPage() {
   const { expenses, removeTransaction } = useFinanceHook();
+  const { Component: Pagination, currentPageTransactions } = usePagination(expenses);
 
   return (
     <DashboardLayout>
-      <div className="p-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Gastos</h1>
-        <p className="text-gray-600 mb-6">
-          Gestiona y visualiza tus gastos mensuales
-        </p>
+      <div className="flex flex-col gap-10">
+        <Headers title="Gastos" description="Resumen de tus gastos mensuales" />
         <div className="bg-white rounded-xl border border-gray-200 p-6">
           <TransactionsList
-            transactions={expenses}
+            transactions={currentPageTransactions}
             removeTransaction={removeTransaction}
           />
+          <Pagination />
         </div>
       </div>
     </DashboardLayout>

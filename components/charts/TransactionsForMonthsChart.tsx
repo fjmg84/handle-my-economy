@@ -65,10 +65,10 @@ function TransactionsForMonthsChart() {
   }, [transactions, transactionType, year, month]);
 
   return (
-    <>
-      <div className="flex gap-10">
+    <div className="flex justify-center items-center flex-col bg-indigo-50/50 rounded-2xl p-10">
+      <div className="flex gap-10 ">
         <select
-          className="border border-gray-300 rounded-md p-2 mb-4"
+          className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-40"
           value={transactionType}
           onChange={(e) =>
             setTransactionType(e.target.value as TransactionType)
@@ -77,8 +77,9 @@ function TransactionsForMonthsChart() {
           <option value={TransactionType.INCOME}>Ingresos</option>
           <option value={TransactionType.EXPENSE}>Gastos</option>
         </select>
+
         <select
-          className="border border-gray-300 rounded-md p-2 mb-4"
+          className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-40"
           value={year}
           onChange={(e) => setYear(Number(e.target.value))}
         >
@@ -92,24 +93,22 @@ function TransactionsForMonthsChart() {
           ))}
         </select>
 
-        <div className="flex items-center gap-2 mb-4">
-          <select
-            className="border border-gray-300 rounded-md p-2"
-            value={month}
-            onChange={(e) => setMonth(Number(e.target.value))}
-          >
-            {months.map((_, index) => (
-              <option key={index} value={index}>
-                {new Date(0, index).toLocaleString("es-ES", { month: "long" })}
-              </option>
-            ))}
-          </select>
-        </div>
+        <select
+          className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-40"
+          value={month}
+          onChange={(e) => setMonth(Number(e.target.value))}
+        >
+          {months.map((_, index) => (
+            <option key={index} value={index}>
+              {new Date(0, index).toLocaleString("es-ES", { month: "long" })}
+            </option>
+          ))}
+        </select>
       </div>
-      <div className="w-200 h-auto">
+      <div className="w-200 h-auto ">
         <canvas id="transactionsForMonthsChart" ref={chartRef}></canvas>
       </div>
-    </>
+    </div>
   );
 }
 

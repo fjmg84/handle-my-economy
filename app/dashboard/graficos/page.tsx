@@ -1,30 +1,26 @@
 import AnnualTrasactionsChart from "@/components/charts/AnnualTransactionsChart";
+import IncomeExpensesChart from "@/components/charts/IncomeExpensesChart";
 import TransactionsForMonthsChart from "@/components/charts/TransactionsForMonthsChart";
 import DashboardLayout from "@/components/dashboard/DashboardLayout";
-import Card from "@/components/shares/Card";
-import { CalendarDays, CalendarRange } from "lucide-react";
+import Headers from "@/components/shares/Header";
 
 export default function GraficosPage() {
   return (
     <DashboardLayout>
-      <div className="p-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Gráficos</h1>
-        <p className="text-gray-600 mb-6">
-          Visualiza tu progreso financiero con gráficos interactivos
-        </p>
+      <div className="flex flex-col gap-10">
+        <Headers
+          title="Gráficos"
+          description="Visualiza tu progreso financiero con gráficos interactivos"
+        />
 
-        <div className="flex flex-col gap-5 items-center">
-          <div className="w-210 flex justify-center items-center">
-            <Card title="Transacciones Anuales" icon={<CalendarDays />}>
-              <AnnualTrasactionsChart />
-            </Card>
+        <div className=" flex gap-4 flex-wrap">
+          <div className="w-full max-w-210">
+            <AnnualTrasactionsChart />
           </div>
 
-          <div className="w-210 flex justify-center items-center">
-            <Card title="Transacciones Mensuales" icon={<CalendarRange />}>
-              <TransactionsForMonthsChart />
-            </Card>
-          </div>
+          <IncomeExpensesChart />
+
+          <TransactionsForMonthsChart />
         </div>
       </div>
     </DashboardLayout>

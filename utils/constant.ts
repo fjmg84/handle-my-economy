@@ -23,3 +23,9 @@ export const months = [
   "Noviembre",
   "Diciembre",
 ];
+
+
+export const colors = {
+  income: "#432dd7", // Verde para ingresos
+  expense: "#7c86ff", // Rojo para gastos
+}

@@ -8,6 +8,8 @@ import { TransactionType } from "@/types/finance";
 import createChart from "@/utils/create-chart";
 import { currentYear, datasetOptions } from "./utils";
 import { months } from "@/utils/constant";
+import DisplayChart from "../shares/DisplayChart";
+import Headers from "../shares/Header";
 
 function AnnualTransactionsChart() {
   const chartRef = useRef<HTMLCanvasElement>(null);
@@ -22,13 +24,19 @@ function AnnualTransactionsChart() {
 
       if (transaction.type === TransactionType.EXPENSE) {
         datasetOptions[TransactionType.EXPENSE].data[month] +=
-          transaction.amount; // Add the amount to the corresponding month
+          transaction?.amount || 0; // Add the amount to the corresponding month
       } else if (transaction.type === TransactionType.INCOME) {
         datasetOptions[TransactionType.INCOME].data[month] +=
-          transaction.amount; // Add the amount to the corresponding month
+          transaction?.amount || 0; // Add the amount to the corresponding month
       }
     }
   });
+
+  console.log(
+    months,
+    datasetOptions[TransactionType.EXPENSE].data,
+    datasetOptions[TransactionType.INCOME].data
+  );
 
   useEffect(() => {
     if (chartRef.current) {
@@ -48,9 +56,13 @@ function AnnualTransactionsChart() {
   }, [transactions]);
 
   return (
-    <div className="w-200 h-auto">
+    <DisplayChart>
+      <Headers
+        title="Transacciones Anuales"
+        description={`Transacciones anuales para ${currentYear.getFullYear()}`}
+      />
       <canvas ref={chartRef} id="annualExpensesChart"></canvas>
-    </div>
+    </DisplayChart>
   );
 }
 

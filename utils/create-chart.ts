@@ -23,7 +23,17 @@ function createChart({
         responsive: true,
         plugins: {
           legend: {
-            position: "top",
+            labels: {
+              font: {
+                size: 12,
+                weight: 900,
+                
+              },
+             borderRadius: 5,
+             boxWidth: 10,
+             boxHeight: 10,
+            },
+            position: "bottom",
           },
         },
       },
