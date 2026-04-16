@@ -48,6 +48,7 @@ function IncomeExpensesChart() {
       />
 
       <canvas ref={chartRef} id="incomeExpensesChart"></canvas>
+      
       <div className="flex flex-col gap-2 text-xs">
         <div className="flex justify-between">
           <p className="uppercase">Ingresos:</p>

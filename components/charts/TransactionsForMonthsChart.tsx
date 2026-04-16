@@ -5,6 +5,9 @@ import { TransactionType } from "@/types/finance";
 import createChart from "@/utils/create-chart";
 import { useEffect, useRef, useState } from "react";
 import { datasetOptions } from "./utils";
+import Headers from "../shares/Header";
+import DisplayChart from "../shares/DisplayChart";
+import { colors } from "@/utils/constant";
 
 const currentDate = new Date();
 const months = Array(12).fill(0); // Initialize an array for the days of the month
@@ -65,18 +68,59 @@ function TransactionsForMonthsChart() {
   }, [transactions, transactionType, year, month]);
 
   return (
-    <div className="flex justify-center items-center flex-col bg-indigo-50/50 rounded-2xl p-10">
+    <DisplayChart>
+      <Headers
+        title="Transacciones Mensuales"
+        description="Visualiza tus ingresos o gastos diarios para un mes específico"
+      />
+
       <div className="flex gap-10 ">
-        <select
-          className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-40"
-          value={transactionType}
-          onChange={(e) =>
-            setTransactionType(e.target.value as TransactionType)
-          }
-        >
-          <option value={TransactionType.INCOME}>Ingresos</option>
-          <option value={TransactionType.EXPENSE}>Gastos</option>
-        </select>
+        <div className="flex items-center gap-3">
+          <span
+            className={`text-sm font-medium transition-colors ${
+              transactionType === TransactionType.INCOME
+                ? "text-indigo-600"
+                : "text-gray-400"
+            }`}
+          >
+            Ingresos
+          </span>
+          <button
+            role="switch"
+            aria-checked={transactionType === TransactionType.EXPENSE}
+            onClick={() =>
+              setTransactionType(
+                transactionType === TransactionType.INCOME
+                  ? TransactionType.EXPENSE
+                  : TransactionType.INCOME
+              )
+            }
+            className="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2"
+            style={{
+              backgroundColor:
+                transactionType === TransactionType.EXPENSE
+                  ? colors.expense
+                  : colors.income,
+            }}
+          >
+            <span
+              className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out ${
+                transactionType === TransactionType.EXPENSE
+                  ? "translate-x-5"
+                  : "translate-x-0"
+              }`}
+            />
+          </button>
+          <span
+            className={`text-sm font-medium transition-colors ${
+              transactionType === TransactionType.EXPENSE
+                ? "text-indigo-500"
+                : "text-gray-400"
+            }`}
+          >
+            Gastos
+          </span>
+        </div>
 
         <select
           className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-40"
@@ -105,10 +149,11 @@ function TransactionsForMonthsChart() {
           ))}
         </select>
       </div>
+
       <div className="w-200 h-auto ">
         <canvas id="transactionsForMonthsChart" ref={chartRef}></canvas>
       </div>
-    </div>
+    </DisplayChart>
   );
 }
 
