@@ -19,7 +19,6 @@ function createChart({
       type,
       data,
       options: {
-        ...options,
         responsive: true,
         plugins: {
           legend: {
@@ -29,13 +28,14 @@ function createChart({
                 weight: 900,
                 
               },
-             borderRadius: 5,
-             boxWidth: 10,
-             boxHeight: 10,
+              borderRadius: 5,
+              boxWidth: 10,
+              boxHeight: 10,
             },
             position: "bottom",
           },
         },
+        ...options,
       },
     });
   }
