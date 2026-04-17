@@ -27,5 +27,5 @@ export const months = [
 
 export const colors = {
   income: "#432dd7", // Verde para ingresos
-  expense: "#7c86ff", // Rojo para gastos
+  expense: "#a3b3ff", //"#7c86ff", // Rojo para gastos
 }

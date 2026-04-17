@@ -17,7 +17,7 @@ function AnnualTransactionsChart() {
   const { transactions } = useFinanceHook();
 
   transactions.forEach((transaction) => {
-    const transactionDate = new Date(transaction.createdAt || 0);
+    const transactionDate = new Date(transaction.date || 0);
 
     if (transactionDate.getFullYear() === currentYear.getFullYear()) {
       const month = transactionDate.getMonth(); // Get the month (0-11)
@@ -32,12 +32,6 @@ function AnnualTransactionsChart() {
     }
   });
 
-  console.log(
-    months,
-    datasetOptions[TransactionType.EXPENSE].data,
-    datasetOptions[TransactionType.INCOME].data
-  );
-
   useEffect(() => {
     if (chartRef.current) {
       createChart({
@@ -46,8 +40,12 @@ function AnnualTransactionsChart() {
         data: {
           labels: months, // Use month names as labels
           datasets: [
-            datasetOptions[TransactionType.EXPENSE],
-            datasetOptions[TransactionType.INCOME],
+            {
+              ...datasetOptions[TransactionType.EXPENSE],
+            },
+            {
+              ...datasetOptions[TransactionType.INCOME],
+            },
           ],
         },
       });

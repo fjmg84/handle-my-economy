@@ -9,7 +9,7 @@ function TransactionsDisplay() {
 
   let incomeTotal = 0;
   incomes.forEach((income) => {
-    const incomeDate = new Date(income.createdAt || "");
+    const incomeDate = new Date(income.date || "");
     const today = new Date().getFullYear();
 
     if (incomeDate.getFullYear() === today) {
@@ -19,7 +19,7 @@ function TransactionsDisplay() {
 
   let expenseTotal = 0;
   expenses.forEach((expense) => {
-    const expenseDate = new Date(expense.createdAt || "");
+    const expenseDate = new Date(expense.date || "");
     const today = new Date().getFullYear();
 
     if (expenseDate.getFullYear() === today) {

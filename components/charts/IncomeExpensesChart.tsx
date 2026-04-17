@@ -44,7 +44,7 @@ function IncomeExpensesChart() {
     <DisplayChart>
       <Headers
         title="Ingresos vs Gastos"
-        description="Comparación entre ingresos y gastos"
+        description="Comparación entre ingresos y gastos totales"
       />
 
       <canvas ref={chartRef} id="incomeExpensesChart"></canvas>

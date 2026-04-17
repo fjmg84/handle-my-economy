@@ -23,16 +23,16 @@ export const navItems: NavItem[] = [
     icon: <ArrowLeftRight color="#4f46e5" />,
   },
   {
-    name: "Gastos",
-    path: "/dashboard/gastos",
-    description: "Ver gastos",
-    icon: <BanknoteArrowDown color="#4f46e5" />,
-  },
-  {
     name: "Ingresos",
     path: "/dashboard/ingresos",
     description: "Ver ingresos",
     icon: <BanknoteArrowUp color="#4f46e5" />,
+  },
+  {
+    name: "Gastos",
+    path: "/dashboard/gastos",
+    description: "Ver gastos",
+    icon: <BanknoteArrowDown color="#4f46e5" />,
   },
   {
     name: "Gráficos",

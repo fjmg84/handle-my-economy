@@ -15,6 +15,12 @@ const initialTransaction: Transaction = {
   category: "General",
 };
 
+const currentDate = new Date();
+const minDate = new Date(currentDate.getFullYear() - 5, 0, 1)
+  .toISOString()
+  .split("T")[0];
+const maxDate = currentDate.toISOString().split("T")[0];
+
 export default function FinanceForm() {
   const [transaction, setTransaction] =
     useState<Transaction>(initialTransaction);
@@ -100,6 +106,8 @@ export default function FinanceForm() {
             className="form-input bg-white p-3 rounded-sm border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-full"
             name="date"
             value={transaction.date}
+            min={minDate}
+            max={maxDate}
             onChange={(e) =>
               setTransaction({ ...transaction, date: e.currentTarget.value })
             }

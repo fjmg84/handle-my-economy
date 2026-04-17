@@ -26,7 +26,7 @@ function TransactionsForMonthsChart() {
   const { transactions } = useFinanceHook();
 
   transactions.forEach((transaction) => {
-    const transactionDate = new Date(transaction.createdAt || 0);
+    const transactionDate = new Date(transaction.date || 0);
 
     if (
       transactionDate.getFullYear() === year &&
@@ -35,7 +35,7 @@ function TransactionsForMonthsChart() {
     ) {
       const day = transactionDate.getDate(); // Get the day of the month (1-31)
 
-      daysInMonthArray[day - 1] += transaction.amount;
+      daysInMonthArray[day - 1] += transaction.amount || 0; // Add the amount to the corresponding day (adjusting for 0-based index)
     }
   });
 
@@ -61,6 +61,13 @@ function TransactionsForMonthsChart() {
               label,
             },
           ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
         },
       });
     }
