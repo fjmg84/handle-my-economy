@@ -2,6 +2,7 @@ import {
   ArrowLeftRight,
   BanknoteArrowDown,
   BanknoteArrowUp,
+  BotMessageSquare,
   ChartArea,
 } from "lucide-react";
 import Link from "next/link";
@@ -40,6 +41,12 @@ export const navItems: NavItem[] = [
     description: "Análisis de datos visual",
     icon: <ChartArea color="#4f46e5" />,
   },
+  {
+    name: "Asistente",
+    path: "/dashboard/asistente",
+    description: "Asistente virtual para gestión financiera",
+    icon: <BotMessageSquare color="#4f46e5" />,
+  }
 ];
 
 function NavLink() {
